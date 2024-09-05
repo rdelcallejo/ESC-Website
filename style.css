@@ -1,13 +1,122 @@
+/* General Body Styling */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Hero Section */
+#hero {
+    background-image: url('your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #f4a261;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.cta-button:hover {
+    background-color: #e76f51;
+}
+
+/* About Section */
+#details {
+    padding: 50px;
+    background-color: #fff;
     text-align: center;
 }
 
-h1 {
+#details h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
     color: #2c3e50;
 }
 
-p {
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.info-box {
+    text-align: center;
+}
+
+.icon {
+    font-size: 2rem;
+    color: #2a9d8f;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    font-size: 1.2rem;
     color: #34495e;
+}
+
+/* Sponsors Section */
+#sponsors {
+    padding: 50px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+#sponsors h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.sponsor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.sponsor-grid img {
+    width: 100px;
+}
+
+/* Footer */
+footer {
+    background-color: #2a9d8f;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
 }
