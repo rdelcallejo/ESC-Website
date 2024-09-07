@@ -18,12 +18,12 @@ body {
 /* Simple black dot cursor */
 .cursor {
     position: fixed;
-    width: 10px; /* Set the size of the dot */
+    width: 10px;
     height: 10px;
-    border-radius: 50%; /* Make it a circle */
-    background-color: black; /* Black dot */
-    pointer-events: none; /* Prevents interfering with clickable elements */
-    z-index: 9999; /* Ensure it's always on top */
+    border-radius: 50%;
+    background-color: black;
+    pointer-events: none;
+    z-index: 9999;
     transform: translate(-50%, -50%);
 }
 
@@ -46,34 +46,34 @@ a, button {
 a {
     color: #000;
     text-decoration: underline;
-    transition: opacity 0.28s ease, text-decoration-color 0.28s ease; /* Increase transition time */
+    transition: opacity 0.28s ease, text-decoration-color 0.28s ease;
 }
 
 a:hover {
-    opacity: 0.7; /* Slight decrease in opacity */
-    text-decoration-color: transparent; /* Gradually make the underline disappear */
+    opacity: 0.7;
+    text-decoration-color: transparent;
 }
 
 /* Buttons */
 button {
-    transition: opacity 0.28s ease; /* Increase transition for buttons */
+    transition: opacity 0.28s ease;
 }
 
 button:hover {
-    opacity: 0.7; /* Slight decrease in opacity on hover */
+    opacity: 0.7;
 }
 
 /* Remove hover effects for ESC logo */
 .footer-bottom .logo {
-    pointer-events: auto; /* Enable interaction with the logo */
+    pointer-events: auto;
 }
 
 /* Remove underline for the current page link */
 nav ul li a.current {
-    text-decoration: none; /* Remove underline for current page */
-    opacity: 0.5; /* Lower opacity to indicate it's the current page */
-    pointer-events: none; /* Make the link unclickable */
-    cursor: default; /* Show default cursor on hover */
+    text-decoration: none;
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
 }
 
 /* Navigation styling */
@@ -142,7 +142,7 @@ nav ul li {
 }
 
 .footer-top ul li:not(:last-child)::after {
-    content: " · "; /* Adds the "·" between each link */
+    content: " · ";
     margin-left: 10px;
 }
 
@@ -167,4 +167,25 @@ nav ul li {
     width: 40px;
     display: inline-block;
     margin-left: auto;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    #about h1 {
+        font-size: 1.4rem; /* Reduce font size for smaller screens */
+        margin-bottom: 20px;
+    }
+
+    nav ul li {
+        font-size: 0.8rem; /* Adjust navigation font size for mobile */
+        margin-left: 8px;
+    }
+
+    .container {
+        padding: 20px; /* Slightly reduce container padding */
+    }
+
+    #about {
+        margin-top: 0; /* Remove negative margin that could be pushing content off the screen */
+    }
 }
