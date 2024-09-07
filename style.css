@@ -1,122 +1,170 @@
-/* General Body Styling */
+/* General body styling */
 body {
+    font-family: "Inter Tight Variable", sans-serif;
+    font-weight: 300;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 20px;
+    cursor: none; /* Hide the default cursor completely */
+    overflow-x: hidden;
+}
+
+/* Simple black dot cursor */
+.cursor {
+    position: fixed;
+    width: 10px; /* Set the size of the dot */
+    height: 10px;
+    border-radius: 50%; /* Make it a circle */
+    background-color: black; /* Black dot */
+    pointer-events: none; /* Prevents interfering with clickable elements */
+    z-index: 9999; /* Ensure it's always on top */
+    transform: translate(-50%, -50%);
+}
+
+/* Ensure clickable elements have a higher z-index than the cursor */
+a, button {
+    position: relative;
+    z-index: 10;
+}
+
+/* Container */
+.container {
+    max-width: 690px;
+    margin: auto;
+    padding: 26px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Anchor tags (links) */
+a {
+    color: #000;
+    text-decoration: underline;
+    transition: opacity 0.28s ease, text-decoration-color 0.28s ease; /* Increase transition time */
+}
+
+a:hover {
+    opacity: 0.7; /* Slight decrease in opacity */
+    text-decoration-color: transparent; /* Gradually make the underline disappear */
+}
+
+/* Buttons */
+button {
+    transition: opacity 0.28s ease; /* Increase transition for buttons */
+}
+
+button:hover {
+    opacity: 0.7; /* Slight decrease in opacity on hover */
+}
+
+/* Remove hover effects for ESC logo */
+.footer-bottom .logo {
+    pointer-events: auto; /* Enable interaction with the logo */
+}
+
+/* Remove underline for the current page link */
+nav ul li a.current {
+    text-decoration: none; /* Remove underline for current page */
+    opacity: 0.5; /* Lower opacity to indicate it's the current page */
+    pointer-events: none; /* Make the link unclickable */
+    cursor: default; /* Show default cursor on hover */
+}
+
+/* Navigation styling */
+nav {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: right;
+    font-family: "Articulat CF", sans-serif;
+    font-weight: 400;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 10px;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+/* About Section Styling */
+#about {
+    margin-top: -100px;
+}
+
+#about h1 {
+    font-family: "Articulat CF", sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+}
+
+#about p {
+    font-family: "Inter Tight Variable", sans-serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
     color: #333;
 }
 
-/* Hero Section */
-#hero {
-    background-image: url('your-background-image.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+/* Footer Top (Social Links) */
+.footer-top {
+    padding-top: 40px;
+    border-top: 1px solid #ccc;
+    margin-top: 50px;
+    text-align: left;
+    font-family: "Articulat CF", sans-serif;
+    font-weight: normal;
+}
+
+.footer-top ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.footer-top ul li {
+    display: inline;
+    margin-right: 10px;
+    font-size: 0.85rem;
+}
+
+.footer-top ul li:not(:last-child)::after {
+    content: " · "; /* Adds the "·" between each link */
+    margin-left: 10px;
+}
+
+/* Footer Bottom (Last Updated and Logo) */
+.footer-bottom {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    color: white;
+    padding-top: 10px;
+    margin-top: 100px;
+    font-family: "Inter Tight Variable", sans-serif;
+    font-weight: 300;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.cta-button {
-    background-color: #f4a261;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-}
-
-.cta-button:hover {
-    background-color: #e76f51;
-}
-
-/* About Section */
-#details {
-    padding: 50px;
-    background-color: #fff;
-    text-align: center;
-}
-
-#details h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #2c3e50;
-}
-
-.info {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-}
-
-.info-box {
-    text-align: center;
-}
-
-.icon {
-    font-size: 2rem;
-    color: #2a9d8f;
-    margin-bottom: 10px;
-}
-
-.info-box p {
-    font-size: 1.2rem;
-    color: #34495e;
-}
-
-/* Sponsors Section */
-#sponsors {
-    padding: 50px;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-#sponsors h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #2c3e50;
-}
-
-.sponsor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.sponsor-grid img {
-    width: 100px;
-}
-
-/* Footer */
-footer {
-    background-color: #2a9d8f;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-footer p {
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #666;
     margin: 0;
 }
 
-.social-links a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    text-decoration: underline;
+.footer-bottom .logo {
+    width: 40px;
+    display: inline-block;
+    margin-left: auto;
 }
