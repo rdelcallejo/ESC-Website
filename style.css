@@ -118,7 +118,7 @@ nav ul li a.current {
     transition: opacity 0.28s ease, text-decoration-color 0.28s ease;
 }
 
-#collaborations h2{
+#collaborations h2, #saved-for-later h2{
     font-family: "Articulat CF", sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
