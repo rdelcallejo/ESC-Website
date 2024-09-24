@@ -1,12 +1,19 @@
 /*--------------------------------------------------------------------------- Universal Styling */
 
+:root {
+    --main-color: #333;
+    --secondary-color: rgb(142, 142, 142);
+    --font-size-small: 0.95rem;
+    --font-size-large: 1.6rem;
+}
+
 body {
     font-family: "Inter Tight Variable", sans-serif;
     font-weight: 300;
     margin: 0;
     padding: 0;
     background-color: #fff;
-    color: #333;
+    color: var(--main-color);
     display: inline;
     justify-content: center;
     align-items: flex-start;
@@ -16,10 +23,25 @@ body {
     overflow-x: hidden;
 }
 
-p{
+h1 {
+    font-family: "Articulat CF", sans-serif;
+    font-weight: bold;
+    font-size: var(--font-size-large);
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-family: "Articulat CF", sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+p {
     font-family: "Inter Tight Variable", sans-serif;
     font-weight: 300;
-    font-size: 0.95rem;
+    font-size: var(--font-size-small);
     line-height: 1.8;
     margin-bottom: 35px;
 }
@@ -49,11 +71,6 @@ a {
     color: #000;
     text-decoration: underline;
     transition: opacity 0.28s ease, text-decoration-color 0.28s ease;
-}
-
-a, button {
-    position: relative;
-    z-index: 10;
 }
 
 a:hover {
@@ -91,39 +108,16 @@ nav ul li a.current {
 
 /*----------------------------------------------------------------------- Page Specific Styling */
 
-#members, #leadership, #projects, #about{
+#members, #leadership, #projects, #about {
     padding-top: 100px;
-}
-
-#members h1, #leadership h1, #projects h1, #about h1{
-    font-family: "Articulat CF", sans-serif;
-    font-weight: bold;
-    font-size: 1.6rem;
-    margin-bottom: 25px;
-}
-
-#members h2, #leadership h2, #projects h2, #about h2{
-    font-family: "Articulat CF", sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: 100px;
-    margin-bottom: 20px;
 }
 
 /*-------------------------------------------------------------------- Section Specific Styling */
 
 #executive-board a, #representatives a, #leads a {
-    color: rgb(142, 142, 142);
+    color: var(--secondary-color);
     text-decoration: underline;
     transition: opacity 0.28s ease, text-decoration-color 0.28s ease;
-}
-
-#collaborations h2, #saved-for-later h2{
-    font-family: "Articulat CF", sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-top: 100px;
-    margin-bottom: 20px;
 }
 
 /*----------------------------------------------------------------------- Dynamic Table Styling */
@@ -138,12 +132,12 @@ nav ul li a.current {
     text-align: left;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 0.95rem;
+    font-size: var(--font-size-small);
     border-bottom: 1px solid #ddd;
 }
 
 .dynamic-table td.right {
-    color: rgb(142, 142, 142);
+    color: var(--secondary-color);
     text-align: right;
     opacity: 1;
     transition: opacity 0.6s ease;
@@ -170,7 +164,45 @@ nav ul li a.current {
     line-height: 1.5;
 }
 
-/*------------------------------------------------------------------------------ Footer Stlying */
+.hidden-row {
+    display: none;
+    max-height: 0;
+    color: var(--secondary-color);
+    opacity: 0;
+    overflow: hidden;
+    white-space: normal; /* Ensure the text wraps fully */
+}
+
+.hidden-row td {
+    padding: 20px;
+}
+
+
+/* Slide In and Slide Out Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: max-content;; /* Adjust based on content, or use max-content for automatic height */
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        max-height: max-content; /* Adjust based on content */
+    }
+    to {
+        opacity: 0;
+        max-height: 0;
+    }
+}
+
+
+/*------------------------------------------------------------------------------ Footer Styling */
 
 .footer-top {
     padding-top: 40px;
@@ -204,6 +236,7 @@ nav ul li a.current {
     align-items: center;
     padding-top: 10px;
     margin-top: 100px;
+    margin-bottom: 20px;
     font-family: "Inter Tight Variable", sans-serif;
     font-weight: 300;
 }
@@ -220,12 +253,38 @@ nav ul li a.current {
     margin-left: auto;
 }
 
+.signature p {
+    font-size: 0.8rem;
+    text-align: center;
+    color: rgb(195, 195, 195);
+}
+
 /*------------------------------------------------------------------- Screen Bounds Adjustments */
 
 @media (max-width: 768px) {
-    #about h1, #projects h1 {
+    h1 {
         font-size: 1.4rem;
         margin-bottom: 20px;
+    }
+
+    h2 {
+        font-family: "Articulat CF", sans-serif;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-family: "Inter Tight Variable", sans-serif;
+        font-weight: 300;
+        font-size: 0.8rem;
+        line-height: 1.8;
+        margin-bottom: 35px;
+    }
+
+    .container {
+        padding: 20px;
     }
 
     nav ul li {
@@ -233,16 +292,53 @@ nav ul li a.current {
         margin-left: 8px;
     }
 
-    .container {
-        padding: 20px;
+    #members, #leadership, #projects, #about {
+        padding-top: 10px;
     }
 
-    #about, #projects {
-        margin-top: 0;
+    .dynamic-table td {
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 0.8rem;
+        border-bottom: 1px solid #ddd;
     }
 
-    .projects-table td {
-        padding: 8px;
-        font-size: 0.85rem;
+    .tooltip-row.hidden-row {
+        display: none;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+
+    .tooltip-row.expanded + .hidden-row {
+        display: table-row;
+    }
+    
+    .footer-top ul li {
+        display: inline;
+        margin-right: 1px;
+        font-size: 0.6rem;
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-family: "Inter Tight Variable", sans-serif;
+        font-weight: 300;
+    }
+
+    .footer-bottom p {
+        font-size: 0.6rem;
+        color: #666;
+        margin: 0;
+    }
+
+    .signature p {
+        font-size: 0.6rem;
+        text-align: center;
+        color: rgb(195, 195, 195);
     }
 }
